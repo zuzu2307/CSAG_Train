@@ -17,8 +17,14 @@ app.get('/post', (req, res) => {
     res.json(post)
 })
 
-app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.json()) //Use to parse JSON bodies
+app.use(express.urlencoded()) //Parse URL-endcoded bodies 
+
+
+app.post('/post', (req, res) => {
+    post.post.push(req.body)
+    res.status(201).json(req.body)
+})
 
 
 app.listen(3000, () => {
